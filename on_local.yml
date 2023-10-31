@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+    fast-api:
+        ports:
+          - "8000:80"
+        build:
+            context: .
+            dockerfile: ./Docker/FastAPI/Dockerfile
+        container_name: FastAPI
+        volumes:
+            - ./app:/app
+        networks:
+            - pycab-app-network
+
+networks:
+  pycab-app-network:
