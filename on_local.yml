@@ -2,8 +2,10 @@ version: "3.8"
 
 services:
     fast-api:
+        env_file:
+            - .env
         ports:
-          - "8000:80"
+            - "8000:80"
         build:
             context: .
             dockerfile: ./Docker/FastAPI/Dockerfile

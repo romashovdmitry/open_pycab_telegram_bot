@@ -1,0 +1,3 @@
+*.pyc
+pip-compile.txt
+.env
