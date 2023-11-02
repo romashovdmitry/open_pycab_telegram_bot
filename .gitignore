@@ -1,3 +1,9 @@
+# Django files
 *.pyc
+*/__pycache__/
+# pip-tools create file
 pip-compile.txt
+# ENV file
 .env
+# log files
+*.log

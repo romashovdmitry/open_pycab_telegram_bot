@@ -2,6 +2,8 @@ FROM python:3.10
 
 WORKDIR /app
 
+ENV TZ=Asia/Baku
+
 COPY ./requirements.txt /app
 COPY ./app /app
 

@@ -1,5 +1,6 @@
 # python imports
 from typing import Union
+import logging
 import os
 
 # telegram imports
@@ -14,17 +15,23 @@ from aiogram.methods.send_message import SendMessage
 # fastAPI imports
 from fastapi import FastAPI
 
+
 app = FastAPI()
 dp = Dispatcher()
+logging.config.fileConfig('logger_config.conf', disable_existing_loggers=False)
+logger = logging.getLogger(name="open_pycab_telegram_logger")
+
 
 @dp.message(CommandStart())
 async def message_handler(message: types.Message) -> None:
+    logger.info("first log")
     await message.answer(text="first try")
 
 @app.on_event("startup")
 async def run_bot_webhook():
     ''' run bot before starting app '''
     bot = Bot(os.getenv("TELEGRAM_TOKEN"), parse_mode=ParseMode.HTML)
+    logger.info('lol kek')
 #    router = Router()
 #    dp.include_router(router)
     print('start')
