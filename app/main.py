@@ -31,16 +31,4 @@ async def message_handler(message: types.Message) -> None:
 async def run_bot_webhook():
     ''' run bot before starting app '''
     bot = Bot(os.getenv("TELEGRAM_TOKEN"), parse_mode=ParseMode.HTML)
-    logger.info('lol kek')
-#    router = Router()
-#    dp.include_router(router)
-    print('start')
     await dp.start_polling(bot)
-    print('finish')
-
-
-'''
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
-'''

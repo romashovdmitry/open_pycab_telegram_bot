@@ -1,6 +1,6 @@
 # Django files
-*.pyc
-*/__pycache__/
+__pycache__/
+*.py[cod]
 # pip-tools create file
 pip-compile.txt
 # ENV file
