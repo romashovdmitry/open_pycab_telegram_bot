@@ -5,4 +5,4 @@ pydantic==2.3.0
 uvicorn==0.23.2
 # for Telegram Bot
 aiogram==3.1.1
-aiohttp==3.8.6
+aiohttp

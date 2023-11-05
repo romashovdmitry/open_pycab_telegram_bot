@@ -6,4 +6,6 @@ pip-compile.txt
 # ENV file
 .env
 # log files
+*.log.*
 *.log
+typical_commands.txt

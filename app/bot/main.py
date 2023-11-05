@@ -2,6 +2,8 @@
 from typing import Union
 import logging
 import os
+import asyncio
+import time # for test, delete me
 
 # telegram imports
 from aiogram import Bot, Dispatcher, types
@@ -16,7 +18,7 @@ from aiogram.methods.send_message import SendMessage
 from fastapi import FastAPI
 
 # custom foos, classes imports
-import routing
+from . import routing
 
 # declare app
 app = FastAPI()
@@ -25,14 +27,19 @@ dp = Dispatcher()
 dp.include_router(router=routing.router)
 
 # declare logging objects
-logging.config.fileConfig('logger_config.conf', disable_existing_loggers=False)
+logging.config.fileConfig('logs/logger_config.conf', disable_existing_loggers=False)
 logger = logging.getLogger(name="open_pycab_telegram_logger")
 
+
+async def first_try(message):
+    ''' test. work '''
+    await message.answer(text='look')
 
 @dp.message(CommandStart())
 async def message_handler(message: types.Message) -> None:
     ''' answer to start command '''
     logger.info("first log")
+    asyncio.create_task(first_try(message))
     await message.answer(text="first try")
 
 @app.on_event("startup")
@@ -45,3 +52,7 @@ async def run_bot_webhook():
     # skip order of messages
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
+
+
+# examples
+# https://github.com/MasterGroosha/aiogram-3-guide

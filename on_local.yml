@@ -12,6 +12,7 @@ services:
         container_name: FastAPI
         volumes:
             - ./app:/app
+            - ./app/bot:/app/bot
         networks:
             - pycab-app-network
 
