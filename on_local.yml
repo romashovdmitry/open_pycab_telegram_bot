@@ -5,14 +5,14 @@ services:
         env_file:
             - .env
         ports:
-            - "8000:80"
+            - "8001:8001"
         build:
             context: .
             dockerfile: ./Docker/FastAPI/Dockerfile
         container_name: FastAPI
+        restart: always
         volumes:
             - ./app:/app
-            - ./app/bot:/app/bot
         networks:
             - pycab-app-network
 

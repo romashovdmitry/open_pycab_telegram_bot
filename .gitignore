@@ -9,3 +9,4 @@ pip-compile.txt
 *.log.*
 *.log
 typical_commands.txt
+ngrok.exe
